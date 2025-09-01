@@ -137,7 +137,7 @@ function AppRoutes() {
                 <Route 
                   path="dashboard" 
                   element={
-                    <SimpleRoute>
+                    <SimpleRoute routeName="Dashboard">
                       <RoleBasedDashboard />
                     </SimpleRoute>
                   } 
@@ -145,7 +145,7 @@ function AppRoutes() {
                 <Route 
                   path="dashboard/live" 
                   element={
-                    <SimpleRoute>
+                    <SimpleRoute routeName="Live Dashboard">
                       <Dashboard />
                     </SimpleRoute>
                   } 
