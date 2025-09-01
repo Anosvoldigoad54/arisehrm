@@ -18,8 +18,8 @@ import './styles/index.css'
 import { log } from './services/loggingService'
 
 // Lazy load components for better performance
-const Dashboard = lazy(() => import('./components/dashboard/LiveDashboard'))
-const EmployeeDirectory = lazy(() => import('./components/employees/EmployeeDirectory'))
+const Dashboard = lazy(() => import('./components/dashboard/ConsolidatedDashboard'))
+const EmployeeDirectory = lazy(() => import('./components/employees/ConsolidatedEmployeeDirectory'))
 const TeamsPage = lazy(() => import('./pages/Teams'))
 const AttendanceTracking = lazy(() => import('./components/attendance/ComprehensiveAttendanceSystem'))
 const LocationBasedAttendance = lazy(() => import('./components/attendance/LocationBasedAttendance'))
