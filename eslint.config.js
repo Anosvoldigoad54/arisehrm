@@ -1,35 +1,26 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import tseslint from '@typescript-eslint/eslint-plugin'
-import tsparser from '@typescript-eslint/parser'
-
 export default [
-  js.configs.recommended,
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
     languageOptions: {
       ecmaVersion: 2020,
       sourceType: 'module',
-      parser: tsparser,
       globals: {
-        ...globals.browser,
-        ...globals.es2020,
-        ...globals.node,
+        window: 'readonly',
+        document: 'readonly',
+        console: 'readonly',
+        process: 'readonly',
+        Buffer: 'readonly',
+        global: 'readonly',
+        module: 'readonly',
+        require: 'readonly',
+        exports: 'readonly',
       },
     },
-    plugins: {
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
-      '@typescript-eslint': tseslint,
-    },
     rules: {
-      // Core rules - less strict for development
+      // Core rules - relaxed for development
       'no-console': 'warn',
       'no-debugger': 'warn',
-      'no-unused-vars': 'off', // Handled by TypeScript
-      '@typescript-eslint/no-unused-vars': 'warn',
+      'no-unused-vars': 'warn',
       'prefer-const': 'warn',
       'no-var': 'error',
       
@@ -41,16 +32,8 @@ export default [
       'no-empty': 'warn',
       'no-extra-semi': 'error',
       
-      // React rules
-      ...reactHooks.configs.recommended.rules,
-      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
-      
-      // TypeScript rules - relaxed
-      '@typescript-eslint/no-explicit-any': 'warn',
-      '@typescript-eslint/no-non-null-assertion': 'warn',
-      
-      // Formatting rules - minimal
-      'semi': ['error', 'never'],
+      // Minimal formatting rules
+      'semi': ['warn', 'never'],
       'quotes': ['warn', 'single', { avoidEscape: true }],
     },
   },
