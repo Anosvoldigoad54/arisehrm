@@ -9,6 +9,10 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  define: {
+    global: 'globalThis',
+    'process.env': {}
+  },
   optimizeDeps: {
     exclude: ['chart.js/auto'], 
     include: [
@@ -22,6 +26,20 @@ export default defineConfig({
   },
   server: {
     port: 3000,
+    host: '0.0.0.0',
     force: true // Force dependency re-optimization
   },
+  build: {
+    target: 'esnext',
+    rollupOptions: {
+      external: [],
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          mui: ['@mui/material', '@mui/icons-material', '@mui/system'],
+          charts: ['recharts'],
+        }
+      }
+    }
+  }
 })
