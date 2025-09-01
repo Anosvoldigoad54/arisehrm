@@ -104,14 +104,14 @@ function RouteLoading() {
   )
 }
 
-// Simple route wrapper
-function SimpleRoute({ children }: { children: React.ReactNode }) {
+// Simple route wrapper with error boundary
+function SimpleRoute({ children, routeName }: { children: React.ReactNode, routeName?: string }) {
   return (
-    <ErrorBoundary>
+    <RouteErrorBoundary routeName={routeName}>
       <Suspense fallback={<RouteLoading />}>
         {children}
       </Suspense>
-    </ErrorBoundary>
+    </RouteErrorBoundary>
   )
 }
 
