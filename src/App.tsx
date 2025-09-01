@@ -8,12 +8,14 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { Box, CircularProgress, Typography, useTheme, Alert } from '@mui/material'
 import ErrorBoundary from './components/common/ErrorBoundary'
+import { RouteErrorBoundary } from './components/common/RouteErrorBoundary'
 import { AuthProvider } from './contexts/AuthContext'
 import { ThemeContextProvider } from './contexts/ThemeContext'
 import { SimpleAuthGuard as AuthGuard } from './components/auth/SimpleAuthGuard'
 import { MainLayout } from './components/layout/MainLayout'
 import './styles/globals.css'
 import './styles/index.css'
+import { log } from './services/loggingService'
 
 // Lazy load components for better performance
 const Dashboard = lazy(() => import('./components/dashboard/LiveDashboard'))
