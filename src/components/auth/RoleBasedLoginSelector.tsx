@@ -284,7 +284,7 @@ export const RoleBasedLoginSelector: React.FC = () => {
             {/* Role Selection Grid */}
             <Grid container spacing={3} justifyContent="center">
               {roleOptions.map((role, index) => (
-                <Grid size={{ xs: 12, sm: 6, md: 4 }} key={role.id}>
+                <Grid item xs={12} sm={6} md={4} key={role.id}>
                   <Zoom in timeout={600 + index * 100}>
                     <Card
                       sx={{
